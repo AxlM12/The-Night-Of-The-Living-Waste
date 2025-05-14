@@ -13,7 +13,12 @@ public class Aspiradora : Base_Weapon
         if (particleEffect != null) particleEffect.particles.Play();
     }
 
-    protected override void DisableWeapon()
+    //protected override void DamageOnce(Vector3 hitPoint)
+    //{
+    //    base.DamageOnce(hitPoint + Vector3.right);
+    //}
+
+    public override void DisableWeapon()
     {
         if (particleEffect != null) particleEffect.particles.Stop();
         base.DisableWeapon();
@@ -23,7 +28,7 @@ public class Aspiradora : Base_Weapon
     {
         if (IsWeaponEffective(enemy))
         {
-            enemy.TakeDamage(0, isInstantKill);
+            enemy.TakeDamage(0, true);
         }
     }
 }

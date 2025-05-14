@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1519a08a00607a4fa59c2fd759a96e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAll: 1
+  destroyEnemies: 1
+  destroyWeapons: 1
   destroyDelay: 0
-  destroyCategories: 
+  drawGizmos: 1

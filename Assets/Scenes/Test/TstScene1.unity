@@ -8019,7 +8019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmEvent: {fileID: 11400000, guid: 26e15d50e3bb1934f97749603f62a2eb, type: 2}
-  AmbienceEvent: {fileID: 11400000, guid: 914f553fd24357f409435c2e6445bcd4, type: 2}
+  ambienceEvent: {fileID: 11400000, guid: 914f553fd24357f409435c2e6445bcd4, type: 2}
+  ambienceIntensity: 0
 --- !u!1 &1867778968
 GameObject:
   m_ObjectHideFlags: 0

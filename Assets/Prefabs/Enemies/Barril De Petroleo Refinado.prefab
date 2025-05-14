@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8014547067184715244, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1570045532, guid: 0fd63a3100fc5714dab9675d91a7e018, type: 3}
+    - target: {fileID: 8014547067184715244, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15b9d4cc617ac4d4dad45b12ff17dbd8, type: 2}
     - target: {fileID: 8014547067184715245, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -99,6 +107,26 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 865f9b49a1ad3ea418c04d53cb988b59, type: 2}
+    - target: {fileID: 8014547067184715251, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014547067184715251, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014547067184715251, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014547067184715251, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014547067184715251, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.6875
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8014547067184715247, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0293c6fdd4c29a04d8fc20868bb7edb2, type: 3}
@@ -125,6 +153,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   deathExplosion: {fileID: 5146420662669453638, guid: 59479167588e91141a36b6186354975c, type: 3}
+  explosionSizeMult: {x: 0, y: 0, z: 0}
   AllowDamage: 1
   MovementDuration: {x: 0.5, y: 0.5}
   RandomMoveInX: 0

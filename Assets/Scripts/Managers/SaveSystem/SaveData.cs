@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public string Name;
+    public string ProfileName;
     public int DefeatedEnemiesAllTime;
     public List<EndingData> RecivedEndings;
 }

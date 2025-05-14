@@ -56,7 +56,7 @@ public class Base_Enemy : MonoBehaviour
     #endregion
 
     //Internal Variables
-    protected int CurrentHitPoints;
+    public int CurrentHitPoints {  get; protected set; }
     protected Vector3Int MovementLimit;
     public Coroutine MoveCoroutine;
 
@@ -86,10 +86,13 @@ public class Base_Enemy : MonoBehaviour
         transform.position = grid.WorldToCell(transform.position) + (grid.cellSize / 2);
     }
 
-    private void Update()
-    {
-
-    }
+    //private void Update()
+    //{
+    //    if (CurrentHitPoints <= 0)
+    //    {
+    //        EnemyDefeated();
+    //    }
+    //}
 
     protected virtual void OnDestroy()
     {
@@ -138,18 +141,30 @@ public class Base_Enemy : MonoBehaviour
 
     public virtual void TakeDamage(int DamageTaken, bool IsInstantKill)
     {
-        if (AllowDamage)
-        {
-            CurrentHitPoints -= DamageTaken;
-            if (CurrentHitPoints <= 0 || IsInstantKill) EnemyDefeated();
-            else EnemAnimator.SetTrigger("TookDamage");
-        }
+        CurrentHitPoints -= DamageTaken;
+        if (CurrentHitPoints <= 0 || IsInstantKill) EnemyDefeated();
+        else EnemAnimator.SetTrigger("TookDamage");
+
+        //if (AllowDamage && CurrentHitPoints > 0)
+        //{
+        //    CurrentHitPoints -= DamageTaken;
+        //    if (CurrentHitPoints <= 0 || IsInstantKill) EnemyDefeated();
+        //    else EnemAnimator.SetTrigger("TookDamage");
+        //}
+        //else
+        //{
+        //    EnemyDefeated();
+        //}
     }
 
     protected virtual void EnemyDefeated()
     {
         StopAllCoroutines();
-        EnemAnimator.SetTrigger("IsDefeated");
+        EnemAnimator.ResetTrigger("IsAlterState");
+        EnemAnimator.ResetTrigger("TookDamage");
+        EnemAnimator.SetTrigger("FinishAlterState");
+        EnemAnimator.SetBool("IsMoving", false);
+        EnemAnimator.SetBool("IsDefeated", true);
         if (EnemySpawner.Instance != null)
         {
             EnemySpawner.Instance.UpdateStatsOnEnemyDefeated();

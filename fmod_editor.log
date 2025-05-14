@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001C53FBDA698 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001D798C31CD8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,8 +16,101 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2467616
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25280
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000D02FEFF138
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEA3C33FA0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEA3C33F60
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEA3C34080
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEA3C34140
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001D797802E68
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='TNOTLW - Button Fx 2', format=5, channels=2, frequency=48000, lengthbytes=81344, lengthpcm=297931, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.964093.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2467616
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25280
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000D02FEFF138
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEA3C33FA0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEA3C33F60
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEA3C34080
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEA3C34140
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001D7979C8278
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='TNOTLW - Button Fx 3', format=5, channels=2, frequency=48000, lengthbytes=65344, lengthpcm=248276, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.964751.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2467616
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25280
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000D02FEFF138
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEA3C33FA0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEA3C33F60
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEA3C34080
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEA3C34140
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001D7977FC748
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='TNOTLW - Button Fx 4', format=5, channels=2, frequency=48000, lengthbytes=26496, lengthpcm=99310, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.954377.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2467616
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25280
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000D02FEFF138
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEA3C33FA0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEA3C33F60
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEA3C34080
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEA3C34140
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001D7979C8278
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='TNOTLW - Button Fx 5', format=5, channels=2, frequency=48000, lengthbytes=44704, lengthpcm=198620, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.837448.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2467616
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25280
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000D02FEFF138
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEA3C33FA0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEA3C33F60
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEA3C34080
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEA3C34140
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001D7977FDDF8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='TNOTLW - Button Fx 1', format=5, channels=2, frequency=48000, lengthbytes=50336, lengthpcm=198620, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.963750.
+[LOG] SoundI::release                          :  (000001D79B0AC7B8)
+[LOG] SoundI::release                          :     TNOTLW - Button Fx 2 (000001D661F84738)
+[LOG] SoundI::release                          :  (000001D7997E26C8)
+[LOG] SoundI::release                          :     TNOTLW - Button Fx 3 (000001D49DBFA338)
+[LOG] SoundI::release                          :  (000001D79B0ADEB8)
+[LOG] SoundI::release                          :     TNOTLW - Button Fx 4 (000001D661F84C18)
+[LOG] SoundI::release                          :  (000001D7997E5D68)
+[LOG] SoundI::release                          :     TNOTLW - Button Fx 5 (000001D49DBF97D8)
+[LOG] SoundI::release                          :  (000001D79B0AC368)
+[LOG] SoundI::release                          :     TNOTLW - Button Fx 1 (000001D661F840B8)
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 

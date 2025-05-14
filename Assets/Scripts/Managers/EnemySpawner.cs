@@ -118,13 +118,13 @@ public class EnemySpawner : MonoBehaviour
                 break;
             case GameManager.LevelState.Medium:
                 SpawnDelay = (float)Random.Range(3, 5);
-                EnemyCap = GameManager.Instance.TotalEnemiesOnLevel / 3;
-                selectedEnemy = SelectEnemyBasedOnPorcentage(15, 50, 40, 0);
+                EnemyCap = GameManager.Instance.TotalEnemiesOnLevel / 4;
+                selectedEnemy = SelectEnemyBasedOnPorcentage(15, 50, 30, 0);
                 break;
             case GameManager.LevelState.Hard:
                 SpawnDelay = (float)Random.Range(1, 3);
-                EnemyCap = GameManager.Instance.TotalEnemiesOnLevel / 2;
-                selectedEnemy = SelectEnemyBasedOnPorcentage(10, 40, 50, 0);
+                EnemyCap = GameManager.Instance.TotalEnemiesOnLevel / 3;
+                selectedEnemy = SelectEnemyBasedOnPorcentage(30, 50, 35, 0);
                 break;
             case GameManager.LevelState.Finish:
                 break;
@@ -190,12 +190,20 @@ public class EnemySpawner : MonoBehaviour
     {
         Base_Enemy EnemySelected = SelectEnemyToSpawn();
 
-        do
+        //do
+        //{
+        //    //int spawnHeight = Random.Range(0, GridSize.y - 1);
+        //    int spawnHeight = Random.Range(0, gridManager.GetGridSize().y - 1);
+        //    transform.position = new Vector3(transform.position.x, spawnHeight + gridManager.GridCellCenter().y, 0f);
+        //} while (Physics2D.OverlapCircle(transform.position + Vector3.left, 0.25f, LayerMask.GetMask("Enemy")) || Physics2D.OverlapCircle(transform.position + (Vector3.left * 2), 0.25f, LayerMask.GetMask("Enemy")));
+
+        int spawnHeight = Random.Range(0, gridManager.GetGridSize().y - 1);
+        transform.position = new Vector3(transform.position.x, spawnHeight + gridManager.GridCellCenter().y, 0f);
+
+        if (Physics2D.OverlapCircle(transform.position + Vector3.left, 0.25f, LayerMask.GetMask("Enemy")) || Physics2D.OverlapCircle(transform.position + (Vector3.left * 2), 0.25f, LayerMask.GetMask("Enemy")))
         {
-            //int spawnHeight = Random.Range(0, GridSize.y - 1);
-            int spawnHeight = Random.Range(0, gridManager.GetGridSize().y - 1);
-            transform.position = new Vector3(transform.position.x, spawnHeight + gridManager.GridCellCenter().y, 0f);
-        } while (Physics2D.OverlapCircle(transform.position + Vector3.left, 0.25f, LayerMask.GetMask("Enemy")) || Physics2D.OverlapCircle(transform.position + (Vector3.left * 2), 0.25f, LayerMask.GetMask("Enemy")));
+            return;
+        }
 
         UpdateCurrentTrashCan();
 
@@ -236,7 +244,12 @@ public class EnemySpawner : MonoBehaviour
                 NormalSpawn((int)GameManager.Instance.CurrentLevelState);
                 break;
         }
-        
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.UpdateStatsOnEnemySpawned();
+        }
+
         CurrentEnemyCount++;
 
         void NormalSpawn(int trashcanVisualIndex)

@@ -12,6 +12,8 @@ public class Enemy_ExitMap : StateMachineBehaviour
         enemy = animator.GetComponent<Base_Enemy>();
 
         enemy.EnemAnimator.SetBool("IsMoving", false);
+        animator.ResetTrigger("TookDamage");
+        enemy.SetAllowDamage(false);
         enemy.StopAllCoroutines();
         enemy.StartCoroutine(enemy.MoveForward(5f, animator.GetFloat("ExitYOffset"), 6f));
         if (AudioManager.Instance != null) AudioManager.Instance.PlaySound(enemy.EnemyData.MainSound);

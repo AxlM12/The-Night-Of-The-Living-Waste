@@ -8,4 +8,14 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: BarrilDePetroleo_Animator
   m_Controller: {fileID: 9100000, guid: 04376be92f3123242b583c41343158f3, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: f6b0a4d17bfd4de4dbc5a3be9617d449, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f726158794628d54283e343b244ce8aa, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0119e7c76d16843439ffee93c8119bf4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 65fb12b51080d8649900d70859ada3b3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b10085eb078ccd54dbab406605c01e55, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 65fb12b51080d8649900d70859ada3b3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f606475de10e80b4c88df0de439507be, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 65fb12b51080d8649900d70859ada3b3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f4ab0b6c76fa3b94ca306f8f9b0d1591, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e556b06ab0b737f40b7bcb4fc7ea6967, type: 2}

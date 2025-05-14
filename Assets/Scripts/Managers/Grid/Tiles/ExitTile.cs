@@ -19,6 +19,7 @@ public class ExitTile : GridTile
         {
             enemy.EnemAnimator.SetFloat("ExitYOffset", finishOffset);
             enemy.EnemAnimator.SetTrigger("IsExitMap");
+            enemy.SetAllowDamage(false);
         }
     }
 

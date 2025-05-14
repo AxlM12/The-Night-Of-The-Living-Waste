@@ -18,7 +18,7 @@ MonoBehaviour:
   DisplayDescription: 
   BaseDamage: 3
   BaseUseCost: 1
-  BaseReloadTime: 3
+  BaseReloadTime: 1
   attackRange: {x: 1, y: 1}
   AffectAllMaterials: 0
   AffectedEnemyMaterials: 00000000

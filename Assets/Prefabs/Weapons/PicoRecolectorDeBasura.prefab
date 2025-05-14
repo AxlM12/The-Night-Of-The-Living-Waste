@@ -16,6 +16,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 844e5e49db927b04596dd18e2bb7d754, type: 2}
     - target: {fileID: 5298384427808179184, guid: e460d379a7b85c14785e704579812f08, type: 3}
+      propertyPath: useSpecialEffect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298384427808179184, guid: e460d379a7b85c14785e704579812f08, type: 3}
       propertyPath: landingRotation.w
       value: -0.7372773
       objectReference: {fileID: 0}

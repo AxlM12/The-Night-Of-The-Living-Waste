@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class Weapon_Hit : StateMachineBehaviour
 {
-    EventInstance effectSound;
+    Base_Weapon weapon;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Base_Weapon weapon = animator.GetComponent<Base_Weapon>();
+        weapon = animator.GetComponent<Base_Weapon>();
         if (AudioManager.Instance != null) AudioManager.Instance.PlaySound(weapon.WeaponDataSO.HitSound);
         weapon.Particles.Play();
         if (weapon.WeaponDataSO.EffectSound != null)
         {
-            effectSound = AudioManager.Instance.CreateEventInstance(weapon.WeaponDataSO.EffectSound.Event);
-            effectSound.start();
+            weapon.EffectSound = AudioManager.Instance.CreateEventInstance(weapon.WeaponDataSO.EffectSound.Event);
+            weapon.EffectSound.start();
         }
     }
 
@@ -28,8 +28,8 @@ public class Weapon_Hit : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        effectSound.stop(STOP_MODE.ALLOWFADEOUT);
-        effectSound.release();
+        weapon.EffectSound.stop(STOP_MODE.ALLOWFADEOUT);
+        weapon.EffectSound.release();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

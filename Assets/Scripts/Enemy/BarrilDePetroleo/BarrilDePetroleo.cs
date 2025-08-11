@@ -25,7 +25,7 @@ public class BarrilDePetroleo : Base_Enemy
         var UseRandomMoveInX = RandomMoveInX ? MovementLimit.x = Random.Range(1, Mathf.Abs(enemyData.MovementVector.x + 1)) : MovementLimit.x = enemyData.MovementVector.x;
         var UseRandomMoveInY = RandomMoveInY ? MovementLimit.y = Random.Range(1, Mathf.Abs(enemyData.MovementVector.y + 1)) : MovementLimit.y = enemyData.MovementVector.y;
 
-        int DirectionIndicator = Random.Range(1, 11) % 2;
+        int DirectionIndicator = Random.Range(2, 5) % 2;
         switch (DirectionIndicator)
         {
             case 0: //Choose x

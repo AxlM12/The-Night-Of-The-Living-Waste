@@ -19,13 +19,13 @@ MonoBehaviour:
     del jugador el nivel terminara con \run final horrible.\r"
   EnemyMaterial: 0300000002000000
   EnemyCategory: 3
-  MovementVector: {x: 3, y: 3, z: 0}
+  MovementVector: {x: -3, y: 3, z: 0}
   MovementTime: 0
   MovementTimeRange:
   - 2
   - 5
   MaxHitPoints: 12
-  RecyclePointsGiven: 2
+  RecyclePointsGiven: 14
   MainSound: {fileID: 11400000, guid: eb56ac88788b23e4698695781665e1b7, type: 2}
   HurtSound: {fileID: 11400000, guid: d6a747efc76e4d64d8ef1a64c8167db2, type: 2}
   DeathSound: {fileID: 11400000, guid: bd301ca724a7c8249a4a43835a318783, type: 2}

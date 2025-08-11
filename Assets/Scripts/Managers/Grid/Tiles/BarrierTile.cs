@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class BarrierTile : GridTile
 {
-    [SerializeField] bool destroyAll;
+    [SerializeField] bool destroyEnemies;
+    //[SerializeField] bool destroyWeapons;
     [SerializeField] float destroyDelay;
-    [SerializeField] EnemyData.EnemyCategories[] destroyCategories;
+    [SerializeField] bool drawGizmos;
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(transform.position, new Vector3(0.5f, 0.5f, 0f));
+        if (drawGizmos)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawCube(transform.position, new Vector3(0.5f, 0.5f, 0f));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,12 +40,20 @@ public class BarrierTile : GridTile
         //    Destroy(enemy, destroyDelay);
         //    GameManager.Instance.UpdateStatsOnEnemyOutOfGameArea();
         //}
-        if (collision.gameObject.TryGetComponent(out Base_Enemy enemy))
+        if (destroyEnemies && collision.gameObject.TryGetComponent(out Base_Enemy enemy))
         {
             Destroy(enemy.gameObject, destroyDelay);
             GameManager.Instance.UpdateStatsOnEnemyOutOfGameArea();
-            Debug.LogWarning("Enemy Out Of Game Are", gameObject);
+            Debug.LogWarning("Enemy Out Of Game Area at", gameObject);
         }
+
+        //if(destroyWeapons && collision.gameObject.TryGetComponent(out Base_Weapon weapon))
+        //{
+        //    if(weapon.wpState == Base_Weapon.State.Active) weapon.DisableWeapon();
+        //    weapon.DisableWeapon();
+        //    GameManager.Instance.CurrentRecyclePoints += weapon.WeaponDataSO.BaseUseCost;
+        //    Debug.LogWarning("Weapon Out Of Area at", gameObject);
+        //}
     }
 
 }

@@ -50,6 +50,7 @@ public class MousePosition2D : MonoBehaviour
     public void SetSelectedTile()
     {
         TileIndicator.gameObject.SetActive(true);
+        //Vector3 pos = MousePointer.transform.position;
         TileIndicator.transform.position = MousePointer.transform.position;
     }
 

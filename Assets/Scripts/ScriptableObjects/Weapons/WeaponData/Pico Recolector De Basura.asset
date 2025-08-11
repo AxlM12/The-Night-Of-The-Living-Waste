@@ -16,9 +16,9 @@ MonoBehaviour:
   DisplayName: Pico Recolector De Basura
   DisplayImage: {fileID: 0}
   DisplayDescription: Arama Basica
-  BaseDamage: 3
+  BaseDamage: 5
   BaseUseCost: 2
-  BaseReloadTime: 3
+  BaseReloadTime: 2
   attackRange: {x: 1, y: 1}
   AffectAllMaterials: 1
   AffectedEnemyMaterials: 

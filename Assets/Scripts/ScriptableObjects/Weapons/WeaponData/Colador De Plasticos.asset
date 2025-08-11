@@ -20,10 +20,10 @@ MonoBehaviour:
     que no puede \reliminar se romper\xE1 dejando 3 puntos de reciclaje."
   BaseDamage: 0
   BaseUseCost: 12
-  BaseReloadTime: 16
+  BaseReloadTime: 14
   attackRange: {x: 2, y: 0.8}
-  AffectAllMaterials: 0
-  AffectedEnemyMaterials: 04000000
+  AffectAllMaterials: 1
+  AffectedEnemyMaterials: 0400000001000000
   AffectAllCategories: 0
   AffectedEnemyCategories: 0100000002000000
   HitSound: {fileID: 11400000, guid: f9b7e1f279d7e4a40a0035af1a416f09, type: 2}

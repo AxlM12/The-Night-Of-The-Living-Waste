@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +31,9 @@ public class Base_Weapon : MonoBehaviour
 
     //Internal Variables
     protected Vector3 HitPosition;
+    public EventInstance EffectSound;
+    public Coroutine SpawnProtection;
+    protected Collider2D wpCollider;
 
     #region Unity Functions
 
@@ -38,9 +42,28 @@ public class Base_Weapon : MonoBehaviour
         RigidBody = GetComponent<Rigidbody2D>();
         Particles = GetComponentInChildren<ParticleSystem>();
         animator = GetComponent<Animator>();
+        wpCollider = GetComponent<Collider2D>();
 
         wpState = State.Standby;
     }
+
+    //private void Update()
+    //{
+    //    switch (wpState)
+    //    {
+    //        case State.Standby:
+    //            //transform.rotation = Quaternion.identity;
+    //            CancelInvoke("SpawnProtection");
+    //            break;
+    //        case State.Active:
+    //            Invoke("SpawnProtection", 10f);
+    //            break;
+    //        case State.Recharging:
+    //            CancelInvoke("SpawnProtection");
+    //            //transform.rotation = new Quaternion(0f,0f,0f,0f);
+    //            break;
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
@@ -50,10 +73,29 @@ public class Base_Weapon : MonoBehaviour
 
     #endregion
 
-    protected virtual void DisableWeapon()
+    public void ResetTransform()
+    {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+    }
+
+    public IEnumerator SpawnProtectionCR(float time)
+    {
+        yield return new WaitForSeconds(time);
+        animator.SetTrigger("Finish");
+        wpState = State.Recharging;
+        EffectSound.stop(STOP_MODE.ALLOWFADEOUT);
+        EffectSound.release();
+        Invoke("SetToStandBy", weaponDataSO.BaseReloadTime);
+        gameObject.SetActive(false);
+    }
+
+    public virtual void DisableWeapon()
     {
         animator.SetTrigger("Finish");
         wpState = State.Recharging;
+        EffectSound.stop(STOP_MODE.ALLOWFADEOUT);
+        EffectSound.release();
         Invoke("SetToStandBy", weaponDataSO.BaseReloadTime);
         gameObject.SetActive(false);
     }
@@ -61,6 +103,9 @@ public class Base_Weapon : MonoBehaviour
     public void SetToStandBy()
     {
         wpState = State.Standby;
+        wpCollider.enabled = true;
+        animator.ResetTrigger("Finish");
+        transform.rotation = Quaternion.identity;
     }
 
     //public IEnumerator Recharge()
@@ -82,6 +127,9 @@ public class Base_Weapon : MonoBehaviour
 
     public virtual void HitOnPosition(Vector3 hitPoint)
     {
+        StopCoroutine(SpawnProtection);
+        wpCollider.enabled = false;
+
         RigidBody.velocity = Vector3.Lerp(RigidBody.velocity, Vector3.zero, 5f);
         transform.position = Vector3.Lerp(transform.position, hitPoint + landPositionOffset, 5f);
         if(fixedLandingRotation) transform.rotation = Quaternion.Lerp(transform.rotation, landingRotation, 5f);

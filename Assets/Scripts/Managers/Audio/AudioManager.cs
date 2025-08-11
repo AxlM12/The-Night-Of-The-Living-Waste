@@ -3,16 +3,25 @@ using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     [Header("Fmod Events")]
     [SerializeField] FmodEvent bgmEvent;
-    [SerializeField] FmodEvent AmbienceEvent;
+    [SerializeField] FmodEvent ambienceEvent;
+    [SerializeField] float ambienceIntensity;
+    [SerializeField] FmodEvent gamePausedSnapshot;
+
+    //Buses
+    private Bus MasterBus;
+    private Bus MusicBus;
+    private Bus SFXBus;
 
     //Event Instances
     EventInstance MainBGM;
     EventInstance AmbienceSound;
+    EventInstance GamePaused;
 
     //Singleton Instance
     public static AudioManager Instance;
@@ -29,12 +38,67 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        MasterBus = RuntimeManager.GetBus("bus:/");
+        MusicBus = RuntimeManager.GetBus("bus:/Music");
+        SFXBus = RuntimeManager.GetBus("bus:/SFX");
     }
 
     void Start()
     {
-        InitializeBMG(bgmEvent.Event);
-        InitializeAmbience(AmbienceEvent.Event);
+        if (bgmEvent != null)
+        {
+            InitializeBMG(bgmEvent.Event);
+        }
+        else
+        {
+            Debug.LogWarning("No BGM event selected on inspector", gameObject);
+        }
+
+        if (ambienceEvent != null)
+        {
+            InitializeAmbience(ambienceEvent.Event);
+            ChangeAmbienceIntensity(ambienceIntensity);
+        }
+        else
+        {
+            Debug.LogWarning("No ambience event selected on inspector", gameObject);
+        }
+
+        if(gamePausedSnapshot != null)
+        {
+            InitializeGamePausedSnapshot(gamePausedSnapshot.Event);
+        }
+        else
+        {
+            Debug.LogWarning("No Game Paused event selected on inspector", gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        StopBGM();
+        StopAmbienceSound();
+        RelaseGamePausedSnapshot();
+    }
+
+    #endregion
+
+    #region Bus Control
+
+    public void SetMasterVolume(float volume)
+    {
+        MasterBus.setVolume(volume);
+    }
+
+    public void SetMuteMusicBus(bool mute)
+    {
+        MusicBus.setMute(mute);
+    }
+
+    public void SetMuteSfxBus(bool mute)
+    {
+        SFXBus.setMute(mute);
     }
 
     #endregion
@@ -110,6 +174,30 @@ public class AudioManager : MonoBehaviour
     {
         MainBGM.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         MainBGM.release();
+    }
+
+    #endregion
+
+    #region Game Paused Control
+
+    void InitializeGamePausedSnapshot(EventReference Eventref)
+    {
+        GamePaused = CreateEventInstance(Eventref);
+    }
+
+    public void StartGamePausedSnapshot()
+    {
+        GamePaused.start();
+    }
+
+    public void StopGamePausedSnapshot()
+    {
+        GamePaused.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    void RelaseGamePausedSnapshot()
+    {
+        GamePaused.release();
     }
 
     #endregion

@@ -23,8 +23,6 @@ public class ColadorDePlastico : Base_Weapon
         Gizmos.DrawWireSphere(posChecker, 0.25f);
     }
 
-
-
     protected override void SpecialEffect(Base_Enemy enemy)
     {
         if(IsWeaponEffective(enemy))
@@ -35,6 +33,9 @@ public class ColadorDePlastico : Base_Weapon
 
     public override void HitOnPosition(Vector3 hitPoint)
     {
+        StopCoroutine(SpawnProtection);
+        wpCollider.enabled = false;
+
         RigidBody.velocity = Vector3.Lerp(RigidBody.velocity, Vector3.zero, 5f);
         transform.position = Vector3.Lerp(transform.position, hitPoint + landPositionOffset, 5f);
         transform.rotation = Quaternion.Lerp(transform.rotation, landingRotation, 5f);
@@ -42,7 +43,7 @@ public class ColadorDePlastico : Base_Weapon
         
     }
 
-    protected override void DisableWeapon()
+    public override void DisableWeapon()
     {
         if (particleEffect != null) particleEffect.particles.Stop();
         base.DisableWeapon();

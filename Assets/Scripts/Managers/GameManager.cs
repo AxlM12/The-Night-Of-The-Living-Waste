@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI recyclePointsCounter;
     [SerializeField] GameObject levelFinished;
     [SerializeField] TextMeshProUGUI defeatedEnemyCounter;
-    [SerializeField] TextMeshProUGUI endingType;
+    [SerializeField] GameObject endingContainer;
 
     //Public Variables
     [field: SerializeField]  public int RemainingEnemies {  get; private set; }
@@ -59,14 +59,25 @@ public class GameManager : MonoBehaviour
         recyclePointsCounter.text = CurrentRecyclePoints.ToString();
 
         //UpdateLevelState();
-        if (RemainingEnemies == 0 && EnemySpawner.Instance.CurrentEnemyCount <= 0 && CurrentLevelState != LevelState.Finish)
+        if (RemainingEnemies == 0 && EnemySpawner.Instance.CurrentEnemyCount <= 0 && CurrentLevelState != LevelState.Finish && CurrentRecyclePoints >= 0)
         {
             CurrentLevelState = LevelState.Finish;
             OnLEvelFinished();
         }
+
+        if (CurrentRecyclePoints <= 0 && CurrentLevelState != LevelState.Finish)
+        {
+            CurrentLevelState = LevelState.Finish;
+            OnLEvelFinished(EndingData.EndingType.Horrible);
+        }
     }
 
     #endregion
+
+    public void SaveData(EndingData ending)
+    {
+        SaveSystem.SaveData(SesionManager.CurrentSesion, EnemySpawner.Instance.DefeatedEnemyCount, ending);
+    }
 
     public void OnLEvelFinished()
     {
@@ -78,11 +89,33 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.ChangeAmbienceIntensity(0.6f);
 
             levelFinished.SetActive(true);
-            GameObject endingImg = Instantiate(selectedEnding.EndingObject, levelFinished.transform);
+            GameObject endingImg = Instantiate(selectedEnding.EndingObject, endingContainer.transform);
             defeatedEnemyCounter.text = EnemySpawner.Instance.DefeatedEnemyCount.ToString();
-            endingType.text = levelEnginds.SelectEnding(TotalEnemiesOnLevel, EnemySpawner.Instance.DefeatedEnemyCount).endingType.ToString();
             print(selectedEnding.endingType.ToString());
-            print("Completition " + TotalEnemiesOnLevel / EnemySpawner.Instance.DefeatedEnemyCount * 100);
+            print("Completition " + (float)(EnemySpawner.Instance.DefeatedEnemyCount / TotalEnemiesOnLevel * 100));
+            print("Enemies Ran Out");
+
+            SaveData(selectedEnding);
+        }
+    }
+
+    public void OnLEvelFinished(EndingData.EndingType endingType)
+    {
+        if (CurrentLevelState == LevelState.Finish)
+        {
+            var selectedEnding = levelEnginds.SelectEnding(endingType);
+            AudioManager.Instance.ChangeBGMIntensity(CurrentLevelState);
+            AudioManager.Instance.ChangeEndingSound(selectedEnding.endingType);
+            AudioManager.Instance.ChangeAmbienceIntensity(0.6f);
+
+            levelFinished.SetActive(true);
+            GameObject endingImg = Instantiate(selectedEnding.EndingObject, endingContainer.transform);
+            defeatedEnemyCounter.text = EnemySpawner.Instance.DefeatedEnemyCount.ToString();
+            print(selectedEnding.endingType.ToString());
+            print("Completition " + EnemySpawner.Instance.DefeatedEnemyCount / TotalEnemiesOnLevel * 100);
+            print("No recycle Points");
+
+            SaveData(selectedEnding);
         }
     }
 

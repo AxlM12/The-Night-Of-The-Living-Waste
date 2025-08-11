@@ -16,9 +16,9 @@ MonoBehaviour:
   DisplayName: "Im\xE1n"
   DisplayImage: {fileID: 0}
   DisplayDescription: 
-  BaseDamage: 0
+  BaseDamage: 3
   BaseUseCost: 8
-  BaseReloadTime: 20
+  BaseReloadTime: 12
   attackRange: {x: 3, y: 3}
   AffectAllMaterials: 0
   AffectedEnemyMaterials: 02000000

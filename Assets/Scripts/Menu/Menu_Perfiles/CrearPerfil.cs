@@ -9,19 +9,24 @@ public class CrearPerfil : MonoBehaviour
 {
     [SerializeField] public TMP_InputField txtUsario;
     public TMP_Text nombre;
-    public string nombreUsuario;
-    public void InstantiateCaller(GameObject prefab)
+    //public string nombreUsuario;
+    public void InstantiateCaller(Profile prefab)
     {
         GameObject Content = GameObject.Find("Content");
-        GameObject Input = GameObject.Find("InputField");
-        string s;
-        Instantiate(prefab, Content.transform);
+        //GameObject Input = GameObject.Find("InputField");
 
+        SaveData data = SaveSystem.LoadData(txtUsario.text);
+        if(data == null)
+        {
+            Profile newProfile = Instantiate(prefab, Content.transform);
+            newProfile.Init(txtUsario.text);
+        }
+        txtUsario.text = null;
     }
-    public void Nombre(GameObject prefab)
-    {
-        nombreUsuario = txtUsario.text;
-        nombre.text = nombreUsuario;
 
-    }
+    //public void Nombre(GameObject prefab)
+    //{
+    //    nombreUsuario = txtUsario.text;
+    //    nombre.text = nombreUsuario;
+    //}
 }

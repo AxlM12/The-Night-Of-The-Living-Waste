@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6449742233059021632}
   - component: {fileID: -2482429044451148505}
   - component: {fileID: -280065363733992374}
+  - component: {fileID: -1243919227289210967}
   m_Layer: 7
   m_Name: EnemySpawnTile
   m_TagString: GridTile
@@ -151,6 +152,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb6979a166d3cc4eab3763cef4a82ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1243919227289210967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989306319765649563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1519a08a00607a4fa59c2fd759a96e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyEnemies: 1
+  destroyWeapons: 1
   destroyDelay: 0
 --- !u!1001 &319241453420256707
 PrefabInstance:

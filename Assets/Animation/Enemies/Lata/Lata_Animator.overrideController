@@ -9,5 +9,13 @@ AnimatorOverrideController:
   m_Name: Lata_Animator
   m_Controller: {fileID: 9100000, guid: 04376be92f3123242b583c41343158f3, type: 2}
   m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: f6b0a4d17bfd4de4dbc5a3be9617d449, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dd81665a0c6a0f14d89949db23f18437, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 0119e7c76d16843439ffee93c8119bf4, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 0ceff2a73b9095040b14df8993766eb1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7f306334e1da4e146b1fcb245efb2998, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f606475de10e80b4c88df0de439507be, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7f306334e1da4e146b1fcb245efb2998, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f4ab0b6c76fa3b94ca306f8f9b0d1591, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5bb22f71a9eb82847a8ea1071606fce7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b10085eb078ccd54dbab406605c01e55, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7f306334e1da4e146b1fcb245efb2998, type: 2}

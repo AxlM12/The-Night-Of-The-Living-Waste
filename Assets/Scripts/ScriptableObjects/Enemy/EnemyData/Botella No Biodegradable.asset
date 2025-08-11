@@ -21,7 +21,7 @@ MonoBehaviour:
   MovementVector: {x: 3, y: 1, z: 0}
   MovementTime: 3
   MovementTimeRange: []
-  MaxHitPoints: 6
+  MaxHitPoints: 5
   RecyclePointsGiven: 4
   MainSound: {fileID: 11400000, guid: 7ecf7c7976ab9a547aedd8cd671acfda, type: 2}
   HurtSound: {fileID: 11400000, guid: 6eca84b232958424a9607b16c57d0167, type: 2}
